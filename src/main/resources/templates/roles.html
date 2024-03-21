@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org" th:replace="~{sidemenu :: layout(~{::title}, ~{::section})}">
+
+<head>
+
+    <title>User Roles</title>
+</head>
+
+<body id="page-top">
+<section>
+
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    <!-- Page Heading -->
+                    <h1 class="h3 mb-2 text-gray-800">Role</h1>
+
+
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Role List</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Role Id</th>
+                                            <th>Role Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Role Id</th>
+                                            <th>Role Name</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <tr th:each="e:${allrole}">
+                                            <td>[[${e.roleId}]]</td>
+                                            <td>[[${e.roleName}]]</td>
+                                            <td><i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /.container-fluid -->
+
+</section>
+
+
+
+
+</body>
+
+</html>

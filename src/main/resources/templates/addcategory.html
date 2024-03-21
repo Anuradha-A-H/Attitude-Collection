@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org" th:replace="~{sidemenu :: layout(~{::title}, ~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Role</title>
+</head>
+<body>
+<section>
+
+
+
+    <!-- Page Wrapper -->
+
+
+    <!-- Sidebar -->
+
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-1 text-gray-800">Add New Category</h1>
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Grow In Utility -->
+                    <div class="col-lg-12">
+
+                        <div class="card position-relative">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">new Category</h6>
+                            </div>
+                            <div class="card-body">
+                                <form action="/category/addCategory" method="post">
+                                    <div class="form-row">Category
+                                        <div class="col">
+                                            <input type="text" class="form-control" placeholder="new category" name="categoryName">
+                                        </div>
+                                    </div>
+                                    <p class="mb-0 small py-3">Note: Category name must be unique.</p>
+                                    <div class="col py-3">
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+    </div>
+    <!-- End of Main Content -->
+
+
+
+</section>
+</body>
+</html>
