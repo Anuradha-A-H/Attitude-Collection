@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org" th:replace="~{sidemenu :: layout(~{::title}, ~{::section})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Product</title>
+</head>
+<body>
+<section>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-1 text-gray-800">Add New Product</h1>
+
+                <!-- Content Row -->
+                <div class="row">
+                    <!-- Grow In Utility -->
+                    <div class="col-lg-12">
+
+                        <div class="card position-relative">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">new Product</h6>
+                            </div>
+                            <div class="card-body">
+                                <form action="/deliveryboy/addDeliveryboy" method="post">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail44">First Name</label>
+                                            <input type="text" class="form-control" id="inputEmail44" placeholder="firstName" name="firstName">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputState2">Last Name</label>
+                                            <input type="text" class="form-control" id="inputState2" placeholder="lastName " name="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputStates">Gender</label>
+                                            <select id="inputStates" class="form-control" name="gender">
+                                                <option value="MALE">Male</option>
+                                                <option value="FEMALE">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputState">Date Of birth</label>
+                                            <input type="date" class="form-control" id="inputState" placeholder="Date Of birth " name="dateOfBirth">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail6">Email</label>
+                                            <input type="email" class="form-control" id="inputEmail6" placeholder="Email" name="email">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputState1">Role</label>
+                                            <select id="inputState1" class="form-control" name="roleId">
+                                                <option th:each="e : ${roleList}" th:value="${e.roleId}" th:text="${e.roleName}"></option>
+
+                                            </select>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col py-3">
+                                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+    </div>
+    <!-- End of Main Content -->
+
+
+
+</section>
+</body>
+</html>

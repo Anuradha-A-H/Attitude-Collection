@@ -2,16 +2,18 @@ package Attitude_Collection.AttitudeCollectionOfficePannel.entity;
 
 import Attitude_Collection.AttitudeCollectionOfficePannel.emun.Gender;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 public class User {
 
     @Id
@@ -20,7 +22,7 @@ public class User {
 
     private String firstName;
     private String lastName;
-    private Integer age;
+    private Date dateOfBirth;
 
     @Column(unique = true,nullable = false)
     private String email;
@@ -29,7 +31,13 @@ public class User {
     @JoinColumn
     @ManyToOne
     private Role role;
+
+
     @JoinColumn
     @OneToOne
     private Login login;
+
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Orders> orderList = new ArrayList<>();
+
 }

@@ -13,6 +13,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,7 +23,7 @@ public class NewUserRequest {
 
     private String firstName;
     private String lastName;
-    private Integer age;
+    private Date dateOfBirth;
 
     private String email;
     private Gender gender;
