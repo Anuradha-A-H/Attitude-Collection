@@ -2,10 +2,7 @@ package Attitude_Collection.AttitudeCollectionOfficePannel.entity;
 
 
 import Attitude_Collection.AttitudeCollectionOfficePannel.emun.EmailStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +21,8 @@ public class EmailQueue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+
+    @Lob
     private String mailBody;
     private String subject;
     private String sender;

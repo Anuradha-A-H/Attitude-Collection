@@ -24,4 +24,11 @@ public class EmailQueueController {
         return ResponseEntity.ok(emailQueueList);
     }
 
+    @GetMapping("/allemail")
+    public String allEmail(Model m) {
+        List<EmailQueue> emailQueueList = emailQueueService.allEmailQueue();
+        m.addAttribute("pro",emailQueueList);
+        return "showemail";
+    }
+
 }

@@ -64,7 +64,6 @@ public class DeliveryBoyService {
                     .lastName(request.getLastName())
                     .login(logindtl)
                     .build();
-            System.out.println(userdtl.getDateOfBirth());
             userRepository.save(userdtl);
             SimpleMailMessage message = new SimpleMailMessage();
             message.setSubject("Registration (Attitude Collection Portal)");
@@ -76,7 +75,6 @@ public class DeliveryBoyService {
                     "Now you can login on above link with the help of your reference ID.\n" +
                     "\n" +
                     "Your reference no is :" + username + "\n" +
-                    "\n" +
                     "\n" +
                     "Your password is :" + password;
             message.setText(body);

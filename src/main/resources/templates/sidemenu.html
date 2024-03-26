@@ -56,7 +56,8 @@
             Interface
         </div>
 <!--        Roles-->
-        <li class="nav-item">
+
+        <li class="nav-item" th:if="${session.role eq 1}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
@@ -70,7 +71,7 @@
                 </div>
             </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" th:if="${session.role eq 1}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
@@ -85,7 +86,7 @@
             </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${session.role eq 1}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
@@ -100,7 +101,7 @@
             </div>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" th:if="${session.role eq 1}">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
@@ -427,7 +428,7 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                            <a class="dropdown-item" href="/attitudeCollection/logout" data-toggle="modal" data-target="#logoutModal">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
                             </a>
@@ -479,7 +480,7 @@
             <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                <a class="btn btn-primary" href="login.html">Logout</a>
+                <a class="btn btn-primary" href="/attitudeCollection/logout">Logout</a>
             </div>
         </div>
     </div>
