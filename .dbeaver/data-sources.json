@@ -1,0 +1,38 @@
+{
+	"folders": {},
+	"connections": {
+		"mysql8-18ea2590f0e-7d84f0e74f065d98": {
+			"provider": "mysql",
+			"driver": "mysql8",
+			"name": "localhost",
+			"save-password": true,
+			"configuration": {
+				"host": "localhost",
+				"port": "3306",
+				"url": "jdbc:mysql://localhost:3306/",
+				"configurationType": "MANUAL",
+				"home": "mysql_client",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"virtual-models": {"mysql8-18ea2590f0e-7d84f0e74f065d98":{"attitudecollection":{"@properties":{"erd.diagram.state":{"serialized":"\u003cdiagram version\u003d\"1\" name\u003d\"empty\" time\u003d\"202404031100\"\u003e\u003centities\u003e\u003cdata-source id\u003d\"mysql8-18ea2590f0e-7d84f0e74f065d98\"\u003e\u003centity id\u003d\"1\" name\u003d\"category\" fq-name\u003d\"attitudecollection.category\" order\u003d\"0\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"506\" y\u003d\"448\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"2\" name\u003d\"category_seq\" fq-name\u003d\"attitudecollection.category_seq\" order\u003d\"1\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"40\" y\u003d\"692\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"3\" name\u003d\"email_queue\" fq-name\u003d\"attitudecollection.email_queue\" order\u003d\"2\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"881\" y\u003d\"64\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"4\" name\u003d\"login\" fq-name\u003d\"attitudecollection.login\" order\u003d\"3\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"722\" y\u003d\"64\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"5\" name\u003d\"login_seq\" fq-name\u003d\"attitudecollection.login_seq\" order\u003d\"4\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"267\" y\u003d\"692\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"6\" name\u003d\"order_item\" fq-name\u003d\"attitudecollection.order_item\" order\u003d\"5\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"40\" y\u003d\"124\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"7\" name\u003d\"orders\" fq-name\u003d\"attitudecollection.orders\" order\u003d\"6\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"267\" y\u003d\"40\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"8\" name\u003d\"products\" fq-name\u003d\"attitudecollection.products\" order\u003d\"7\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"40\" y\u003d\"364\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"9\" name\u003d\"roles\" fq-name\u003d\"attitudecollection.roles\" order\u003d\"8\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"722\" y\u003d\"244\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"10\" name\u003d\"roles_seq\" fq-name\u003d\"attitudecollection.roles_seq\" order\u003d\"9\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"506\" y\u003d\"692\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"11\" name\u003d\"subcategory\" fq-name\u003d\"attitudecollection.subcategory\" order\u003d\"10\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"267\" y\u003d\"436\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"12\" name\u003d\"subcategory_seq\" fq-name\u003d\"attitudecollection.subcategory_seq\" order\u003d\"11\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"722\" y\u003d\"692\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003centity id\u003d\"13\" name\u003d\"user\" fq-name\u003d\"attitudecollection.`user`\" order\u003d\"12\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"506\" y\u003d\"88\"\u003e\u003cpath name\u003d\"attitudecollection\"/\u003e\u003c/entity\u003e\u003c/data-source\u003e\u003c/entities\u003e\u003cnotes\u003e\u003cnote id\u003d\"14\" order\u003d\"13\" color-bg\u003d\"255,255,225\" color-fg\u003d\"0,0,0\" x\u003d\"1092\" y\u003d\"885\" w\u003d\"100\" h\u003d\"50\"\u003e\u003c/note\u003e\u003c/notes\u003e\u003crelations\u003e\u003crelation name\u003d\"FKe4hdbsmrx9bs9gpj1fh4mg0ku\" fq-name\u003d\"attitudecollection.subcategory.FKe4hdbsmrx9bs9gpj1fh4mg0ku\" type\u003d\"fk\" pk-ref\u003d\"1\" fk-ref\u003d\"11\"/\u003e\u003crelation name\u003d\"FKr0shamf09rtlymwc9elplf8pf\" fq-name\u003d\"attitudecollection.`user`.FKr0shamf09rtlymwc9elplf8pf\" type\u003d\"fk\" pk-ref\u003d\"4\" fk-ref\u003d\"13\"/\u003e\u003crelation name\u003d\"FKdf4sdmwfnxquyj8hcfrlu9a24\" fq-name\u003d\"attitudecollection.order_item.FKdf4sdmwfnxquyj8hcfrlu9a24\" type\u003d\"fk\" pk-ref\u003d\"7\" fk-ref\u003d\"6\"/\u003e\u003crelation name\u003d\"FKrc4l01sewx7c60r8qctxmuca0\" fq-name\u003d\"attitudecollection.order_item.FKrc4l01sewx7c60r8qctxmuca0\" type\u003d\"fk\" pk-ref\u003d\"7\" fk-ref\u003d\"6\"/\u003e\u003crelation name\u003d\"FK4keqlw3ucfmfsbeu8r1ijdppf\" fq-name\u003d\"attitudecollection.`user`.FK4keqlw3ucfmfsbeu8r1ijdppf\" type\u003d\"fk\" pk-ref\u003d\"9\" fk-ref\u003d\"13\"/\u003e\u003crelation name\u003d\"FKiyysl9lg2lf7wrbs51epcocke\" fq-name\u003d\"attitudecollection.products.FKiyysl9lg2lf7wrbs51epcocke\" type\u003d\"fk\" pk-ref\u003d\"11\" fk-ref\u003d\"8\"/\u003e\u003crelation name\u003d\"FKcooejujh32cpgw33d02snbufy\" fq-name\u003d\"attitudecollection.orders.FKcooejujh32cpgw33d02snbufy\" type\u003d\"fk\" pk-ref\u003d\"13\" fk-ref\u003d\"7\"/\u003e\u003c/relations\u003e\u003c/diagram\u003e"}}}}},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": false,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}

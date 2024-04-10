@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class Products {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String productId;
 
     private String productName;
@@ -24,8 +24,11 @@ public class Products {
     private Integer price;
     private Status status;
     private String description;
+    @Column(nullable = true)
     private Integer rating;
-    private String image;
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] image;
 
     @JoinColumn
     @ManyToOne

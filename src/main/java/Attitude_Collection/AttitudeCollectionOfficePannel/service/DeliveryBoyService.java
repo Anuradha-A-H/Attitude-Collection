@@ -109,7 +109,7 @@ public class DeliveryBoyService {
             return null;
         }
 
-        List<User> userList = userRepository.findByRoleRoleId(role.get().getRoleId());
+        List<User> userList = userRepository.findAllByRoleRoleId(role.get().getRoleId());
         List<DeliveryBoyResponseList> responseLists = new ArrayList<>();
         for(User u :userList)
         {

@@ -24,6 +24,11 @@ public class Category {
     @Column(unique = true,nullable = false)
     private String categoryName;
 
+    @Lob
+    @Column(columnDefinition = "LONGBLOB")
+    private byte[] image;
+
+
     @OneToMany(mappedBy = "category",cascade = CascadeType.ALL)
     private List<Subcategory> subcategoryList = new ArrayList<>();
 

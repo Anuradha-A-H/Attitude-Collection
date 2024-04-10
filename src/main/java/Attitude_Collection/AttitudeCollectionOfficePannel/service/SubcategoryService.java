@@ -98,4 +98,21 @@ public class SubcategoryService {
     public List<Subcategory> subcategoryList() {
         return subcategoryRepo.findAll();
     }
+
+    public List<SubcategoryResponse> subcategoryByCategory(Integer id){
+        Optional<Category> category = categoryRepo.findById(id);
+        if(category.isEmpty())
+            return null;
+        Category catdtl = category.get();
+        List<SubcategoryResponse> subcategoryResponseList = new ArrayList<>();
+        List<Subcategory> subcategories = subcategoryRepo.findSubcategoryByCategory(catdtl);
+        for(Subcategory sub : subcategories)
+        {
+            subcategoryResponseList.add(SubcategoryResponse.builder()
+                            .subcategoryName(sub.getSubcategoryName())
+                            .subcategoryId(sub.getId())
+                    .build());
+        }
+        return subcategoryResponseList;
+    }
 }

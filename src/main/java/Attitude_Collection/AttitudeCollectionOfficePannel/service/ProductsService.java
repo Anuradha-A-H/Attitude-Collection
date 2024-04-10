@@ -6,14 +6,26 @@ import Attitude_Collection.AttitudeCollectionOfficePannel.entity.Products;
 import Attitude_Collection.AttitudeCollectionOfficePannel.entity.Subcategory;
 import Attitude_Collection.AttitudeCollectionOfficePannel.repository.ProductRepository;
 import Attitude_Collection.AttitudeCollectionOfficePannel.repository.SubcategoryRepository;
+import Attitude_Collection.AttitudeCollectionOfficePannel.request.AddProductRequest;
 import Attitude_Collection.AttitudeCollectionOfficePannel.request.ProductsRequest;
 import Attitude_Collection.AttitudeCollectionOfficePannel.response.ProductDtlResponse;
+import Attitude_Collection.AttitudeCollectionOfficePannel.response.ProductdetailResponse;
+import Attitude_Collection.AttitudeCollectionOfficePannel.util.ImageUtil;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class ProductsService {
@@ -22,17 +34,21 @@ public class ProductsService {
     @Autowired
     private SubcategoryRepository subcategoryRepo;
 
-    public String addProduct(ProductsRequest product){
+    @Value("${project.image}")
+    private String path;
+
+    public String addProduct(AddProductRequest product) throws IOException {
         Optional<Subcategory> subcategory = subcategoryRepo.findById(product.getSubcategoryId());
         if(subcategory.isEmpty())
             return "something went wrong";
         Products pro = Products.builder()
                 .productName(product.getProductName())
                 .productQuantity(product.getProductQuantity())
-                .image(product.getImage())
+                .image(ImageUtil.compressImage(product.getImage().getBytes()))
                 .price(product.getPrice())
                 .description(product.getDescription())
-                .rating(product.getRating())
+                .subcategory(subcategory.get())
+                .rating(0)
                 .status(product.getProductQuantity() <= 0?Status.OUTOFSTOCK:Status.INSTOCK)
                 .build();
         Subcategory sub = subcategory.get();
@@ -40,7 +56,6 @@ public class ProductsService {
         productsList.add(pro);
         sub.setProductsList(productsList);
         subcategoryRepo.save(sub);
-        productRepo.save(pro);
         return " Product added Successfully";
     }
 
@@ -51,6 +66,7 @@ public class ProductsService {
             return null;
         Products product = productdtl.get();
          return ProductDtlResponse.builder()
+                 .productName(product.getProductName())
                 .subcategoryName(product.getSubcategory().getSubcategoryName())
                 .productId(product.getProductId())
                 .productQuantity(product.getProductQuantity())
@@ -81,10 +97,14 @@ public class ProductsService {
         List<ProductDtlResponse> productDtlResponses = new ArrayList<>();
         for(Products pro : productsList)
         {
+            byte[] decompressedImage = ImageUtil.decompressImage(pro.getImage());
+//            System.out.println(decompressedImage);
             productDtlResponses.add(ProductDtlResponse.builder()
+                    .productName(pro.getProductName())
                     .subcategoryName(pro.getSubcategory().getSubcategoryName())
                     .productId(pro.getProductId())
                     .productQuantity(pro.getProductQuantity())
+                    .image(Base64.encodeBase64String(decompressedImage))
                     .categoryName(pro.getSubcategory().getCategory().getCategoryName())
                     .status(pro.getStatus())
                     .rating(pro.getRating())
@@ -94,4 +114,46 @@ public class ProductsService {
         }
         return productDtlResponses;
     }
+    public List<ProductdetailResponse> getAllProducts(){
+        List<Products> productsList = productRepo.findAll();
+        List<ProductdetailResponse> productDtlResponses = new ArrayList<>();
+        for(Products pro : productsList)
+        {
+//            System.out.println(Paths.get(pro.getImage()));
+            byte[] decompressedImage = ImageUtil.decompressImage(pro.getImage());
+            productDtlResponses.add(ProductdetailResponse.builder()
+                    .productName(pro.getProductName())
+                    .subcategoryName(pro.getSubcategory().getSubcategoryName())
+                    .productId(pro.getProductId())
+                    .productQuantity(pro.getProductQuantity())
+                    .image(Base64.encodeBase64String(decompressedImage))
+                    .categoryName(pro.getSubcategory().getCategory().getCategoryName())
+                    .status(pro.getStatus())
+                    .rating(pro.getRating())
+                    .price(pro.getPrice())
+                    .description(pro.getDescription())
+                    .build());
+        }
+        return productDtlResponses;
+    }
+
+
+//    public String  uploadImage(String path, MultipartFile file) throws IOException {
+//
+//        // file name
+//        String name = file.getOriginalFilename();
+//        //full path
+//        String randomId = UUID.randomUUID().toString();
+//        String fillename1 = randomId.concat(name.substring(name.lastIndexOf(".")));
+//        String fileePath = path+ File.separator+fillename1;
+//        //create folder if not created
+//        File f= new File(path);
+//        if(!f.exists())
+//        {
+//            f.mkdir();
+//        }
+//        // file copy
+//        Files.copy(file.getInputStream(), Paths.get(fileePath));
+//        return fillename1;
+//    }
 }

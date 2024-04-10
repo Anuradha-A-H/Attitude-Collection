@@ -24,7 +24,6 @@ public class NewUserRequest {
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
-
     private String email;
     private Gender gender;
     private Integer roleId;

@@ -3,24 +3,23 @@
 
 <head>
 
-    <title>Categories</title>
+    <title>Products</title>
 </head>
 
 <body id="page-top">
 <section>
 
-
     <!-- Begin Page Content -->
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Categories</h1>
+        <h1 class="h3 mb-2 text-gray-800">Products</h1>
 
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Categories List</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Products List</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -54,7 +53,9 @@
                         <tbody>
                         <tr th:each="e:${pro}">
                             <td>[[${e.productId}]]</td>
-                            <td>[[${e.image}</td>
+                            <td> <img  th:src="'data:image/jpg;base64,' + ${e.image}" width="100" height="100"/>
+                            </td>
+
                             <td>[[${e.productName}]]</td>
                             <td>[[${e.productQuantity}]]</td>
                             <td>[[${e.price}]]</td>
@@ -63,7 +64,6 @@
                             <td>[[${e.rating}]]</td>
                             <td><i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i></td>
                         </tr>
-
                         </tbody>
                     </table>
                 </div>

@@ -3,9 +3,12 @@ package Attitude_Collection.AttitudeCollectionOfficePannel.controller;
 
 import Attitude_Collection.AttitudeCollectionOfficePannel.entity.Category;
 import Attitude_Collection.AttitudeCollectionOfficePannel.entity.Role;
+import Attitude_Collection.AttitudeCollectionOfficePannel.response.CategoryResponse;
 import Attitude_Collection.AttitudeCollectionOfficePannel.service.CategoryService;
 import Attitude_Collection.AttitudeCollectionOfficePannel.service.RoleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -55,6 +58,12 @@ public class CategoryController {
     public String loadDeleteCategory(@PathVariable Integer id){
         String role = categoryService.deleteCategory(id);
         return "redirect:/category/";
+    }
+
+    @GetMapping("/rest")
+    public ResponseEntity getAllCategory(){
+        List<CategoryResponse> list = categoryService.allCategoryList();
+        return new ResponseEntity(list, HttpStatus.OK);
     }
 
 }

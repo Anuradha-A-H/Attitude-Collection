@@ -36,7 +36,6 @@ public class User {
     @OneToOne
     private Login login;
 
-    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL)
-    private List<Orders> orderList = new ArrayList<>();
+
 
 }
